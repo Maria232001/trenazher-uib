@@ -6,7 +6,6 @@
 <title>УИБ — Тренажёр менеджера</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ВСЕ СТИЛИ ОСТАЮТСЯ ТЕМИ ЖЕ */
 :root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2330;--border:#21262d;--accent:#f97316;--green:#22c55e;--red:#ef4444;--blue:#3b82f6;--yellow:#eab308;--text:#e6edf3;--muted:#7d8590;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--display:'Bebas Neue',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;min-height:100vh;display:flex;flex-direction:column}
@@ -399,26 +398,210 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16
   </div>
 </div>
 
-<!-- ВСЕ ОСТАЛЬНЫЕ ЭКРАНЫ (ETHICS, TESTS и т.д.) ОСТАЮТСЯ ТЕМИ ЖЕ, ЧТО И В ТВОЁМ КОДЕ -->
-<!-- Я пропускаю их здесь для экономии места, но в полном файле они должны быть! -->
+<!-- ETHICS -->
+<div class="scr" id="s-ethics">
+  <div class="mhdr"><div><div class="mtag">МОДУЛЬ 01</div><div class="mtitle">КОДЕКС ЭТИКИ</div><div class="mgoal">Границы, которые нельзя нарушать</div></div></div>
+  <div class="tb" id="ethics-theory1"><h3>Правила без исключений (часть 1)</h3><ul class="tl"><li>Никакой нецензурной лексики и грубости</li><li>Не обещай того, чего нет в договоре</li><li>Если не знаешь ответа: «Давайте уточню у коллег и перезвоню, чтобы сэкономить ваше время»</li><li>Не перебивай: присоединение → уточнение → аргумент</li></ul></div>
+  <div class="tb theory-hidden" id="ethics-theory2"><h3>Правила без исключений (часть 2)</h3><ul class="tl"><li>Фиксируй всё письменно в CRM, а договорённости с клиентом в почте или мессенджере</li><li>Если «нет» — уточни причину и оставь дверь открытой</li></ul><div class="fml">1. Уточни возможность → 2. Назови условие</div><div class="sb"><span class="rl">Хороший ответ</span>«Давайте я попробую согласовать. Заранее уточню, у вас получится оплатить до конца месяца?»</div><div class="sb"><span class="rl">Если удалось</span>«Получилось, но при условии оплаты до конца месяца — подходит?»</div></div>
+  <button class="btn-theory-next" id="ethics-next" onclick="showTheoryPart2('ethics')">Далее →</button>
+  <button class="btn-nxt hidden" id="ethics-test-btn" onclick="markModuleRead('ethics');go('t1',document.querySelector('[data-s=t1]'))">Пройти тест →</button>
+</div>
+
+<!-- TEST 1 -->
+<div class="scr" id="s-t1"><div class="mhdr"><div><div class="mtag">ТЕСТ 01</div><div class="mtitle">КОДЕКС ЭТИКИ</div></div></div><div class="qsec" id="qz-ethics"></div><button class="btn-nxt hidden" id="after-t1" onclick="go('cat',document.querySelector('[data-s=cat]'))">Следующий модуль →</button></div>
+
+<!-- CAT -->
+<div class="scr" id="s-cat">
+  <div class="mhdr"><div><div class="mtag">МОДУЛЬ 02</div><div class="mtitle">КАТЕГОРИРОВАНИЕ КИИ</div><div class="mgoal">Оценка значимости объектов</div></div></div>
+  <div class="tb" id="cat-theory1"><h3>Что такое категорирование? (часть 1)</h3><p>Категорирование — обязательная процедура оценки значимости объектов критической информационной инфраструктуры, которые могут повлиять на безопасность государства, общества и экономики.</p><p>Оценку проводит внутренняя комиссия организации, результаты утверждает ФСТЭК России.</p><div class="brow"><span class="bdg law">ФЗ-187</span><span class="bdg law">ПП РФ №127</span></div></div>
+  <div class="tb theory-hidden" id="cat-theory2"><h3>Детали категорирования (часть 2)</h3><ul class="tl"><li><strong>Информационные системы (ИС)</strong> — хранение данных</li><li><strong>Сети (ИТС)</strong> — обмен информацией</li><li><strong>АСУ (автоматизированные системы управления)</strong> — управление технологическими процессами</li></ul><p>Присваивается одна из трёх категорий: <strong>III, II, I</strong> (I — самая высокая). Подать сведения во ФСТЭК: <strong>10 рабочих дней</strong> после подписания акта.</p></div>
+  <button class="btn-theory-next" id="cat-next" onclick="showTheoryPart2('cat')">Далее →</button>
+  <button class="btn-nxt hidden" id="cat-test-btn" onclick="markModuleRead('cat');go('t2',document.querySelector('[data-s=t2]'))">Пройти тест →</button>
+</div>
+
+<!-- TEST 2 -->
+<div class="scr" id="s-t2"><div class="mhdr"><div><div class="mtag">ТЕСТ 02</div><div class="mtitle">КАТЕГОРИРОВАНИЕ КИИ</div></div></div><div class="qsec" id="qz-cat"></div><button class="btn-nxt hidden" id="after-t2" onclick="go('audit',document.querySelector('[data-s=audit]'))">Следующий модуль →</button></div>
+
+<!-- AUDIT -->
+<div class="scr" id="s-audit">
+  <div class="mhdr"><div><div class="mtag">МОДУЛЬ 03</div><div class="mtitle">АУДИТ КИИ (187-ФЗ)</div><div class="mgoal">Комплексная проверка безопасности</div></div></div>
+  <div class="tb" id="audit-theory1"><h3>Что такое аудит КИИ? (часть 1)</h3><p>Аудит критической информационной инфраструктуры — это оценка текущего уровня защиты объектов, имеющих ключевое значение для национальной, общественной и экономической безопасности.</p><p><strong>Цель:</strong> выявить уязвимости, оценить эффективность мер защиты, предоставить рекомендации по улучшению.</p><div class="brow"><span class="bdg law">ФЗ-187 от 26.07.2017</span><span class="bdg law">Приказ ФСТЭК №239</span><span class="bdg pen">Штраф до 500 тыс. ₽</span></div></div>
+  <div class="tb theory-hidden" id="audit-theory2"><h3>Детали аудита (часть 2)</h3><ul class="tl"><li>Перед вводом в эксплуатацию новых объектов КИИ</li><li>При значительных изменениях в системах</li><li>По требованию ФСТЭК России</li><li>После инцидентов информационной безопасности</li></ul><p><strong>Результаты:</strong> анализ состояния, перечень уязвимостей, рекомендации, план мероприятий.</p><div class="sb"><span class="rl">УТП УИБ</span>Имеем лицензии ФСБ и ФСТЭК, более 8 лет опыта, 2700+ проектов.</div></div>
+  <button class="btn-theory-next" id="audit-next" onclick="showTheoryPart2('audit')">Далее →</button>
+  <button class="btn-nxt hidden" id="audit-test-btn" onclick="markModuleRead('audit');go('t3',document.querySelector('[data-s=t3]'))">Пройти тест →</button>
+</div>
+
+<!-- TEST 3 -->
+<div class="scr" id="s-t3"><div class="mhdr"><div><div class="mtag">ТЕСТ 03</div><div class="mtitle">АУДИТ КИИ (187-ФЗ)</div></div></div><div class="qsec" id="qz-audit"></div><button class="btn-nxt hidden" id="after-t3" onclick="go('pentest',document.querySelector('[data-s=pentest]'))">Следующий модуль →</button></div>
+
+<!-- PENTEST -->
+<div class="scr" id="s-pentest">
+  <div class="mhdr"><div><div class="mtag">МОДУЛЬ 04</div><div class="mtitle">ПЕНТЕСТ</div><div class="mgoal">Тестирование на проникновение</div></div></div>
+  <div class="tb" id="pentest-theory1"><h3>Что такое пентест? (часть 1)</h3><p>Пентест (тестирование на проникновение) — имитация атак злоумышленников для выявления уязвимостей в информационных системах, сетях и приложениях.</p><p><strong>Цель:</strong> обнаружить слабые места до того, как ими воспользуются реальные хакеры.</p><div class="brow"><span class="bdg law">ФЗ-187 (для КИИ)</span><span class="bdg law">Положение ЦБ №684</span></div></div>
+  <div class="tb theory-hidden" id="pentest-theory2"><h3>Виды пентестов (часть 2)</h3><ul class="tl"><li><strong>Внешний:</strong> атака извне на публичные интерфейсы</li><li><strong>Внутренний:</strong> проверка защиты от инсайдера</li><li><strong>Веб-приложения:</strong> поиск уязвимостей в коде</li><li><strong>Социальная инженерия:</strong> фишинг и манипуляции</li></ul><div class="sb"><span class="rl">УТП УИБ</span>Лицензии ФСБ и ФСТЭК, адаптация под бизнес, практичные рекомендации.</div></div>
+  <button class="btn-theory-next" id="pentest-next" onclick="showTheoryPart2('pentest')">Далее →</button>
+  <button class="btn-nxt hidden" id="pentest-test-btn" onclick="markModuleRead('pentest');go('t4',document.querySelector('[data-s=t4]'))">Пройти тест →</button>
+</div>
+
+<!-- TEST 4 -->
+<div class="scr" id="s-t4"><div class="mhdr"><div><div class="mtag">ТЕСТ 04</div><div class="mtitle">ПЕНТЕСТ</div></div></div><div class="qsec" id="qz-pentest"></div><button class="btn-nxt hidden" id="after-t4" onclick="go('ord',document.querySelector('[data-s=ord]'))">Следующий модуль →</button></div>
+
+<!-- ORD -->
+<div class="scr" id="s-ord">
+  <div class="mhdr"><div><div class="mtag">МОДУЛЬ 05</div><div class="mtitle">РАЗРАБОТКА ОРД (152-ФЗ)</div><div class="mgoal">Документация по персональным данным</div></div></div>
+  <div class="tb" id="ord-theory1"><h3>Что такое ОРД? (часть 1)</h3><p>ОРД — организационно-распорядительная документация: внутренние документы, регулирующие защиту персональных данных в компании.</p><p><strong>Включает:</strong> политика обработки ПДн, положение о защите ПДн, инструкции, регламенты доступа, согласия на обработку.</p><div class="brow"><span class="bdg law">152-ФЗ</span><span class="bdg pen">Штраф до 500 тыс. ₽</span></div></div>
+  <div class="tb theory-hidden" id="ord-theory2"><h3>Зачем и когда (часть 2)</h3><ul class="tl"><li>Определить зоны ответственности сотрудников за защиту ПДн</li><li>Снизить риски утечек и атак</li><li>Соответствовать требованиям Роскомнадзора</li><li>Успешно проходить проверки и аудиты</li></ul><div class="sb cl"><span class="rl">Риски отсутствия</span>Штрафы, блокировка процессов, репутационные потери.</div></div>
+  <button class="btn-theory-next" id="ord-next" onclick="showTheoryPart2('ord')">Далее →</button>
+  <button class="btn-nxt hidden" id="ord-test-btn" onclick="markModuleRead('ord');go('t5',document.querySelector('[data-s=t5]'))">Пройти тест →</button>
+</div>
+
+<!-- TEST 5 -->
+<div class="scr" id="s-t5"><div class="mhdr"><div><div class="mtag">ТЕСТ 05</div><div class="mtitle">РАЗРАБОТКА ОРД (152-ФЗ)</div></div></div><div class="qsec" id="qz-ord"></div><button class="btn-nxt hidden" id="after-t5" onclick="go('fsb',document.querySelector('[data-s=fsb]'))">Следующий модуль →</button></div>
+
+<!-- FSB -->
+<div class="scr" id="s-fsb">
+  <div class="mhdr"><div><div class="mtag">МОДУЛЬ 06</div><div class="mtitle">ЛИЦЕНЗИРОВАНИЕ ФСБ</div><div class="mgoal">Криптографическая защита</div></div></div>
+  <div class="tb" id="fsb-theory1"><h3>Что такое лицензия ФСБ? (часть 1)</h3><p>Лицензия ФСБ — разрешение на деятельность по разработке, производству, реализации и обслуживанию средств криптографической защиты информации (СКЗИ).</p><div class="brow"><span class="bdg law">ФЗ-99</span><span class="bdg law">ПП РФ №313</span></div></div>
+  <div class="tb theory-hidden" id="fsb-theory2"><h3>Требования и УТП (часть 2)</h3><ul class="tl"><li>Персонал с профильным образованием (500+ часов), стаж 3-5 лет</li><li>Аттестованные компьютеры, сертифицированные СЗИ</li><li>Спецпомещения с контролем доступа</li></ul><div class="sb"><span class="rl">УТП УИБ</span>Сопровождение «под ключ», лицензия за 3-4 месяца.</div></div>
+  <button class="btn-theory-next" id="fsb-next" onclick="showTheoryPart2('fsb')">Далее →</button>
+  <button class="btn-nxt hidden" id="fsb-test-btn" onclick="markModuleRead('fsb');go('t6',document.querySelector('[data-s=t6]'))">Пройти тест →</button>
+</div>
+
+<!-- TEST 6 -->
+<div class="scr" id="s-t6"><div class="mhdr"><div><div class="mtag">ТЕСТ 06</div><div class="mtitle">ЛИЦЕНЗИРОВАНИЕ ФСБ</div></div></div><div class="qsec" id="qz-fsb"></div><button class="btn-nxt hidden" id="after-t6" onclick="go('fstec',document.querySelector('[data-s=fstec]'))">Следующий модуль →</button></div>
+
+<!-- FSTEC -->
+<div class="scr" id="s-fstec">
+  <div class="mhdr"><div><div class="mtag">МОДУЛЬ 07</div><div class="mtitle">ЛИЦЕНЗИРОВАНИЕ ФСТЭК</div><div class="mgoal">Техническая защита информации</div></div></div>
+  <div class="tb" id="fstec-theory1"><h3>Что такое лицензия ФСТЭК? (часть 1)</h3><p>Лицензия ФСТЭК — разрешение на деятельность по технической защите конфиденциальной информации (ТЗКИ).</p><div class="brow"><span class="bdg law">ФЗ-99</span><span class="bdg law">ПП РФ №79</span></div></div>
+  <div class="tb theory-hidden" id="fstec-theory2"><h3>Требования и этапы (часть 2)</h3><ul class="tl"><li>Квалификация: сотрудники с дипломами по ИБ, стаж 3+ года</li><li>Сертифицированные СЗИ, аттестованные помещения</li></ul><p>Лицензия выдаётся бессрочно, но подлежит контролю.</p><div class="sb"><span class="rl">УТП УИБ</span>2700+ проектов, опыт более 8 лет.</div></div>
+  <button class="btn-theory-next" id="fstec-next" onclick="showTheoryPart2('fstec')">Далее →</button>
+  <button class="btn-nxt hidden" id="fstec-test-btn" onclick="markModuleRead('fstec');go('t7',document.querySelector('[data-s=t7]'))">Пройти тест →</button>
+</div>
+
+<!-- TEST 7 -->
+<div class="scr" id="s-t7"><div class="mhdr"><div><div class="mtag">ТЕСТ 07</div><div class="mtitle">ЛИЦЕНЗИРОВАНИЕ ФСТЭК</div></div></div><div class="qsec" id="qz-fstec"></div><button class="btn-nxt hidden" id="after-t7" onclick="go('gos',document.querySelector('[data-s=gos]'))">Следующий модуль →</button></div>
+
+<!-- GOS -->
+<div class="scr" id="s-gos">
+  <div class="mhdr"><div><div class="mtag">МОДУЛЬ 08</div><div class="mtitle">ПОДКЛЮЧЕНИЕ К ГОССИСТЕМАМ</div><div class="mgoal">ФИС ФРДО, ГИС Профилактика и др.</div></div></div>
+  <div class="tabs"><div class="tab active" onclick="sp('g1',this)">ФИС ФРДО</div><div class="tab" onclick="sp('g2',this)">ГИС Профилактика</div><div class="tab" onclick="sp('g3',this)">ФИС ГИА и Приёма</div><div class="tab" onclick="sp('g4',this)">Сеть 1274</div><div class="tab" onclick="sp('g5',this)">АИСТ ГБД</div></div>
+  <div class="pp active" id="g1"><div class="tb"><h3>ФИС ФРДО — реестр документов об образовании</h3><p>Федеральная система, в которую передаются данные о выданных дипломах и свидетельствах. Варианты подключения: через защищённый клиент ViPNet, OpenDPO, OpenDPO для ДПО и ПО учреждений.</p><div class="brow"><span class="bdg law">ФЗ-273</span><span class="bdg pen">Штраф до 150 тыс. ₽</span></div></div></div>
+  <div class="pp" id="g2"><div class="tb"><h3>ГИС «Профилактика»</h3><p>Система для выявления рисков безнадзорности среди несовершеннолетних. <strong>Срок подключения: до 1 апреля 2026 г.</strong></p><div class="brow"><span class="bdg law">ПП РФ №411</span><span class="bdg pen">Только российские сертифицированные ОС (Astra Linux, Альт, РЕД ОС)</span></div></div></div>
+  <div class="pp" id="g3"><div class="tb"><h3>ФИС ГИА и Приёма</h3><p>Система для проведения экзаменов и приёма в образовательные организации.</p></div></div>
+  <div class="pp" id="g4"><div class="tb"><h3>Сеть 1274</h3><p>Единая информационная система управления кадровым составом госслужбы.</p><div class="brow"><span class="bdg pen">ViPNet Client + аттестация АРМ + средства доверенной загрузки</span></div></div></div>
+  <div class="pp" id="g5"><div class="tb"><h3>АИСТ ГБД</h3><p>Государственный банк данных о детях-сиротах.</p></div></div>
+  <button class="btn-nxt" id="gos-test-btn" onclick="markModuleRead('gos');go('t8',document.querySelector('[data-s=t8]'))">Пройти тест →</button>
+</div>
+
+<!-- TEST 8 -->
+<div class="scr" id="s-t8"><div class="mhdr"><div><div class="mtag">ТЕСТ 08</div><div class="mtitle">ПОДКЛЮЧЕНИЕ К ГОССИСТЕМАМ</div></div></div><div class="qsec" id="qz-gos"></div><button class="btn-nxt hidden" id="after-t8" onclick="go('cold',document.querySelector('[data-s=cold]'))">Следующий модуль →</button></div>
+
+<!-- COLD -->
+<div class="scr" id="s-cold">
+  <div class="mhdr"><div><div class="mtag">МОДУЛЬ 09</div><div class="mtitle">ХОЛОДНЫЙ ЗВОНОК</div><div class="mgoal">Цель — назначить следующий шаг</div></div></div>
+  <div class="tb" id="cold-theory1"><h3>Секретарь (часть 1)</h3><div class="sb"><span class="rl">Менеджер</span>Добрый день, это Михаил, компания «Управление информационной безопасности». Подскажите, с кем могу связаться по вопросу [системы]?</div><div class="sb cl"><span class="rl">Секретарь</span>А зачем?</div><div class="sb"><span class="rl">Менеджер</span>Дело в том, что по вашему региону была проверка — мы перепроверяем соответствие требованиям. Возможно, в этом году истекает лицензия — звоню, чтобы успели продлить.</div></div>
+  <div class="tb theory-hidden" id="cold-theory2"><h3>Разговор с ЛПР (часть 2)</h3><div class="sb"><span class="rl">Менеджер</span>Иван Иванович, добрый день. Это Михаил, звоню по вопросу [системы]. Вы этим занимаетесь?</div><div class="sb"><span class="rl">Менеджер</span>Отлично. Помимо продления, что-то ещё сейчас необходимо?</div><div class="sb"><span class="rl">Менеджер</span>Хорошо. Давайте посмотрим дату истечения, я подготовлю коммерческое предложение и направлю на почту. Когда лучше перезвонить?</div></div>
+  <button class="btn-theory-next" id="cold-next" onclick="showTheoryPart2('cold')">Далее →</button>
+  <button class="btn-nxt hidden" id="cold-test-btn" onclick="markModuleRead('cold');go('t9',document.querySelector('[data-s=t9]'))">Пройти тест →</button>
+</div>
+
+<!-- TEST 9 -->
+<div class="scr" id="s-t9"><div class="mhdr"><div><div class="mtag">ТЕСТ 09</div><div class="mtitle">ХОЛОДНЫЙ ЗВОНОК</div></div></div><div class="qsec" id="qz-cold"></div><button class="btn-nxt hidden" id="after-t9" onclick="go('warm',document.querySelector('[data-s=warm]'))">Следующий модуль →</button></div>
+
+<!-- WARM -->
+<div class="scr" id="s-warm">
+  <div class="mhdr"><div><div class="mtag">МОДУЛЬ 10</div><div class="mtitle">ТЁПЛАЯ БАЗА</div><div class="mgoal">Продление + уточнение ЭДО</div></div></div>
+  <div class="tb" id="warm-theory1"><h3>Скрипт (часть 1)</h3><div class="sb"><span class="rl">Менеджер</span>Ольга Николаевна, добрый день. Это Михаил, работаем с вами по [системе]. У нас заканчивается лицензия [дата]. Реквизиты не менялись? Могу направить договор?</div></div>
+  <div class="tb theory-hidden" id="warm-theory2"><h3>Продолжение (часть 2)</h3><div class="sb"><span class="rl">После реквизитов</span>Отлично. Работаете ли вы через электронный документооборот? Если да — через какую систему (СБИС, Диадок)?</div><div class="sb"><span class="rl">Далее</span>И ещё вопрос — есть ли другие запросы по информационной безопасности?</div></div>
+  <button class="btn-theory-next" id="warm-next" onclick="showTheoryPart2('warm')">Далее →</button>
+  <button class="btn-nxt hidden" id="warm-test-btn" onclick="markModuleRead('warm');go('t10',document.querySelector('[data-s=t10]'))">Пройти тест →</button>
+</div>
+
+<!-- TEST 10 -->
+<div class="scr" id="s-t10"><div class="mhdr"><div><div class="mtag">ТЕСТ 10</div><div class="mtitle">ТЁПЛАЯ БАЗА</div></div></div><div class="qsec" id="qz-warm"></div><button class="btn-nxt hidden" id="after-t10" onclick="go('cross',document.querySelector('[data-s=cross]'))">Следующий модуль →</button></div>
+
+<!-- CROSS -->
+<div class="scr" id="s-cross">
+  <div class="mhdr"><div><div class="mtag">МОДУЛЬ 11</div><div class="mtitle">КРОСС-ПРОДАЖИ</div><div class="mgoal">Уточнять в каждом разговоре</div></div></div>
+  <div class="tb" id="cross-theory1"><h3>Матрица (часть 1)</h3><ul class="tl"><li>Звонок по ФИС ФРДО в школу/колледж → спросить про ГИС Профилактика</li><li>Продление ПО → «Что ещё нужно по IT или ИБ?»</li></ul></div>
+  <div class="tb theory-hidden" id="cross-theory2"><h3>Пример (часть 2)</h3><div class="sb"><span class="rl">Менеджер</span>Слышали ли вы про ГИС Профилактика? С апреля 2026 подключение обязательно. Нужно ли вам подключиться?</div></div>
+  <button class="btn-theory-next" id="cross-next" onclick="showTheoryPart2('cross')">Далее →</button>
+  <button class="btn-nxt hidden" id="cross-test-btn" onclick="markModuleRead('cross');go('t11',document.querySelector('[data-s=t11]'))">Пройти тест →</button>
+</div>
+
+<!-- TEST 11 -->
+<div class="scr" id="s-t11"><div class="mhdr"><div><div class="mtag">ТЕСТ 11</div><div class="mtitle">КРОСС-ПРОДАЖИ</div></div></div><div class="qsec" id="qz-cross"></div><button class="btn-nxt hidden" id="after-t11" onclick="go('stuck',document.querySelector('[data-s=stuck]'))">Следующий модуль →</button></div>
+
+<!-- STUCK -->
+<div class="scr" id="s-stuck">
+  <div class="mhdr"><div><div class="mtag">МОДУЛЬ 12</div><div class="mtitle">ЗАТЫКИ</div><div class="mgoal">Одна фраза на все случаи</div></div></div>
+  <div class="tb" id="stuck-theory1"><h3>Универсальная фраза</h3><div class="fml" style="font-size:16px;text-align:center;padding:20px;">«Давайте сейчас уточню информацию у коллег и вам перезвоню, чтобы сэкономить ваше время»</div></div>
+  <button class="btn-nxt" id="stuck-test-btn" onclick="markModuleRead('stuck');go('t12',document.querySelector('[data-s=t12]'))">Пройти тест →</button>
+</div>
+
+<!-- TEST 12 -->
+<div class="scr" id="s-t12"><div class="mhdr"><div><div class="mtag">ТЕСТ 12</div><div class="mtitle">ЗАТЫКИ</div></div></div><div class="qsec" id="qz-stuck"></div><button class="btn-nxt hidden" id="after-t12" onclick="go('obj',document.querySelector('[data-s=obj]'))">Следующий модуль →</button></div>
+
+<!-- OBJ -->
+<div class="scr" id="s-obj">
+  <div class="mhdr"><div><div class="mtag">МОДУЛЬ 13</div><div class="mtitle">ВОЗРАЖЕНИЯ</div><div class="mgoal">Присоединение → уточнение → аргумент</div></div></div>
+  <div class="tb" id="obj-theory1"><h3>Формула (часть 1)</h3><div class="fml">Присоединение → уточнение → аргумент</div><div class="sb"><span class="rl">«Дорого»</span>«Да, так может показаться. Давайте рассмотрим детальнее.»</div></div>
+  <div class="tb theory-hidden" id="obj-theory2"><h3>Пример (часть 2)</h3><div class="sb"><span class="rl">«Большие сроки»</span>«Понимаю. Правильно ли я понимаю: если решим вопрос со сроками — готовы переходить к договору?»</div></div>
+  <button class="btn-theory-next" id="obj-next" onclick="showTheoryPart2('obj')">Далее →</button>
+  <button class="btn-nxt hidden" id="obj-test-btn" onclick="markModuleRead('obj');go('t13',document.querySelector('[data-s=t13]'))">Пройти тест →</button>
+</div>
+
+<!-- TEST 13 -->
+<div class="scr" id="s-t13"><div class="mhdr"><div><div class="mtag">ТЕСТ 13</div><div class="mtitle">ВОЗРАЖЕНИЯ</div></div></div><div class="qsec" id="qz-obj"></div><button class="btn-nxt hidden" id="after-t13" onclick="checkAllTestsPassed()">Далее →</button></div>
+
+<!-- SIM -->
+<div class="scr" id="s-sim">
+  <div class="mhdr"><div><div class="mtag">МОДУЛЬ 14</div><div class="mtitle">ТРЕНАЖЁР С КЛИЕНТОМ</div><div class="mgoal">ИИ-клиент после всего курса</div></div></div>
+  <div class="prac">
+    <div class="phdr"><span class="pbdg">ТРЕНАЖЁР</span><span class="ptitle">Диалог с ИИ-клиентом</span><button class="btn-rst" onclick="resetSim()">↺ Сброс</button></div>
+    <div class="sp"><div class="sp-lbl">Выбери сценарий</div><div class="sp-btns"><button class="sp-btn active" onclick="selSc('cold',this)">Холодный звонок</button><button class="sp-btn" onclick="selSc('warm',this)">Тёплая база</button><button class="sp-btn" onclick="selSc('cross',this)">Кросс: ГИС Профилактика</button><button class="sp-btn" onclick="selSc('stuck',this)">Сложный клиент</button><button class="sp-btn" onclick="selSc('obj',this)">Возражения</button><button class="sp-btn" onclick="selSc('inbound',this)">Входящий по ФИС ФРДО</button><button class="sp-btn" onclick="selSc('ethics',this)">Этика (скидка 50%)</button></div></div>
+    <div class="msgs" id="simMsgs"></div>
+    <div class="cinput-row"><textarea class="cinput" id="simInput" rows="2" placeholder="Твоя реплика..." onkeydown="simKey(event)"></textarea><button class="btn-send" id="simSend" onclick="sendSim()">Отправить</button></div>
+  </div>
+</div>
+
+<!-- FINAL -->
+<div class="scr" id="s-final">
+  <div class="mhdr"><div><div class="mtag">ФИНАЛ</div><div class="mtitle">ИТОГОВЫЙ ТЕСТ</div><div class="mgoal">Проверка знаний о самом важном человеке</div></div></div>
+  <div class="qsec" id="qz-final"></div>
+  <div id="final-secret-block" style="display:none;"></div>
+</div>
 
 </div>
 </div>
 </div>
 
 <script>
+
 // ========== КОНФИГУРАЦИЯ ==========
 const SUPABASE_URL = 'https://amxqsjiljewxpzyfvgm.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFteHFzamlsanhld3hwenlmdmdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY3ODU5NTgsImV4cCI6MjA5MjM2MTk1OH0.gbr_kZ_6maurwtgMqBn8ueCWzhpI1e16BASu0rQNjTI';
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwel23YLBcQmroh329IRs1P9BDaQKxW9008lyr1ojSFAhQPaaKOmVKoNBAPJrWtFILY/exec';
 
+// Русские названия модулей
 const MODULE_NAMES_RU = {
-  'ethics': 'Кодекс этики', 'cat': 'Категорирование КИИ', 'audit': 'Аудит КИИ',
-  'pentest': 'Пентест', 'ord': 'ОРД (152-ФЗ)', 'fsb': 'Лицензия ФСБ',
-  'fstec': 'Лицензия ФСТЭК', 'gos': 'Госсистемы', 'cold': 'Холодный звонок',
-  'warm': 'Тёплая база', 'cross': 'Кросс-продажи', 'stuck': 'Затыки', 'obj': 'Возражения'
+  'ethics': 'Кодекс этики',
+  'cat': 'Категорирование КИИ',
+  'audit': 'Аудит КИИ',
+  'pentest': 'Пентест',
+  'ord': 'ОРД (152-ФЗ)',
+  'fsb': 'Лицензия ФСБ',
+  'fstec': 'Лицензия ФСТЭК',
+  'gos': 'Госсистемы',
+  'cold': 'Холодный звонок',
+  'warm': 'Тёплая база',
+  'cross': 'Кросс-продажи',
+  'stuck': 'Затыки',
+  'obj': 'Возражения'
 };
 
+// ========== БЕЙДЖИ (РАСШИРЕННЫЕ) ==========
 const BADGES = {
   ethics_master: { name: 'Мастер этики', desc: 'Пройти тест "Кодекс этики" на 100%', icon: '🎓', check: (stats) => stats.perfectTests?.includes('ethics') },
   unbreakable: { name: 'Непробиваемый', desc: 'Пройти все тесты с первой попытки', icon: '🛡️', check: (stats) => stats.firstTimePass >= 13 },
@@ -432,6 +615,7 @@ const BADGES = {
   speed_demon: { name: 'Скоростной демон', desc: 'Пройти тест за 30 секунд', icon: '⚡', check: (stats) => stats.fastestTime <= 30 }
 };
 
+// ========== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ==========
 let currentUser = null;
 let apiKey = '';
 const modulesRead = new Set();
@@ -441,28 +625,53 @@ const testScores = {};
 const testTimes = {};
 const testHistory = {};
 const userStats = {
-  perfectTests: [], firstTimePass: 0, simDialogs: 0, finalPerfect: false,
-  fastStart: false, totalTime: 0, firstTestDate: null, modulesRead: 0,
-  avgScore: 0, maxAttempts: 0, allPerfect: false, fastestTime: Infinity
+  perfectTests: [],
+  firstTimePass: 0,
+  simDialogs: 0,
+  finalPerfect: false,
+  fastStart: false,
+  totalTime: 0,
+  firstTestDate: null,
+  modulesRead: 0,
+  avgScore: 0,
+  maxAttempts: 0,
+  allPerfect: false,
+  fastestTime: Infinity
 };
 
+// 👇 ДОБАВЬ ЭТИ ДВЕ СТРОКИ!
 let syncTimeout = null;
 let isSyncing = false;
 
-// ========== СИНХРОНИЗАЦИЯ (ИСПРАВЛЕННАЯ) ==========
+// ========== СИНХРОНИЗАЦИЯ С SUPABASE ==========
 function showSyncStatus(status) {
   const syncInd = document.getElementById('syncIndicator');
   if (!syncInd) return;
+  
   syncInd.style.display = 'block';
+  
   switch(status) {
-    case 'syncing': syncInd.className = 'sync-indicator syncing'; syncInd.textContent = '⏳ Синхронизация...'; break;
-    case 'synced': syncInd.className = 'sync-indicator synced'; syncInd.textContent = '✓ Синхронизировано'; setTimeout(() => syncInd.style.display = 'none', 2000); break;
-    case 'error': syncInd.className = 'sync-indicator error'; syncInd.textContent = '✗ Ошибка'; setTimeout(() => syncInd.style.display = 'none', 3000); break;
+    case 'syncing':
+      syncInd.className = 'sync-indicator syncing';
+      syncInd.textContent = '⏳ Синхронизация...';
+      break;
+    case 'synced':
+      syncInd.className = 'sync-indicator synced';
+      syncInd.textContent = '✓ Синхронизировано';
+      setTimeout(() => syncInd.style.display = 'none', 2000);
+      break;
+    case 'error':
+      syncInd.className = 'sync-indicator error';
+      syncInd.textContent = '✗ Ошибка синхронизации';
+      setTimeout(() => syncInd.style.display = 'none', 3000);
+      break;
   }
 }
 
 async function syncToCloud() {
   if (!currentUser || isSyncing) return;
+  
+  // Debounce: отменяем предыдущий таймер
   if (syncTimeout) clearTimeout(syncTimeout);
   
   syncTimeout = setTimeout(async () => {
@@ -481,12 +690,14 @@ async function syncToCloud() {
       lastSync: new Date().toISOString()
     };
     
-    console.log('💾 Сохраняем данные:', { testsPassed: data.testsPassed, modulesRead: data.modulesRead });
+    // Сначала сохраняем локально (быстро и надёжно)
+    try {
+      localStorage.setItem('uib_progress_' + currentUser.id, JSON.stringify(data));
+    } catch (e) {
+      console.error('LocalStorage error:', e);
+    }
     
-    // Сохраняем локально
-    localStorage.setItem('uib_progress_' + currentUser.id, JSON.stringify(data));
-    
-    // Синхронизируем с Supabase
+    // Потом синхронизируем с облаком (в фоне)
     try {
       const response = await fetch(`${SUPABASE_URL}/rest/v1/users`, {
         method: 'POST',
@@ -505,9 +716,8 @@ async function syncToCloud() {
       
       if (response.ok) {
         showSyncStatus('synced');
-        console.log('✅ Синхронизировано с Supabase');
       } else {
-        console.error('Supabase error:', await response.text());
+        console.error('Supabase sync failed:', await response.text());
         showSyncStatus('error');
       }
     } catch (error) {
@@ -516,75 +726,84 @@ async function syncToCloud() {
     } finally {
       isSyncing = false;
     }
-  }, 1000);
+  }, 1000); // Ждём 1 секунду перед синхронизацией (debounce)
 }
 
 async function loadFromCloud() {
   if (!currentUser) return false;
   
-  console.log('🔄 Загружаем данные для:', currentUser.id);
-  
-  // Сначала из localStorage
+  // Сначала быстро загружаем из localStorage
   const saved = localStorage.getItem('uib_progress_' + currentUser.id);
   if (saved) {
     try {
       const data = JSON.parse(saved);
-      console.log('📦 Данные из localStorage:', { testsPassed: data.testsPassed });
       applyLoadedData(data);
     } catch (e) {
-      console.error('Parse error:', e);
+      console.error('LocalStorage parse error:', e);
     }
   }
   
-  // Затем из Supabase
+  // Затем пытаемся загрузить с Supabase (в фоне)
   try {
     const response = await fetch(
       `${SUPABASE_URL}/rest/v1/users?user_id=eq.${encodeURIComponent(currentUser.id)}`,
-      { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } }
+      {
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`
+        }
+      }
     );
     
     if (response.ok) {
       const rows = await response.json();
-      if (rows && rows.length > 0 && rows[0].data) {
+      if (rows && rows.length > 0) {
         const cloudData = rows[0].data;
+        
+        // Сравниваем даты последней синхронизации
         const localDate = saved ? JSON.parse(saved).lastSync : null;
         const cloudDate = cloudData.lastSync;
         
+        // Если облачные данные новее - используем их
         if (!localDate || (cloudDate && new Date(cloudDate) > new Date(localDate))) {
-          console.log('☁️ Загружаем из Supabase:', { testsPassed: cloudData.testsPassed });
           applyLoadedData(cloudData);
+          // Сохраняем в localStorage
           localStorage.setItem('uib_progress_' + currentUser.id, JSON.stringify(cloudData));
         }
       }
     }
   } catch (error) {
-    console.error('Load error:', error);
+    console.error('Load from cloud error:', error);
+    // Не показываем ошибку пользователю, т.к. данные уже загружены из localStorage
   }
   
-  console.log('🎯 Итоговые данные:', { testsPassed: Array.from(testsPassed) });
   return true;
 }
 
 function applyLoadedData(data) {
-  // Очищаем
   modulesRead.clear();
   testsPassed.clear();
-  
-  // Заполняем
-  if (data.modulesRead) data.modulesRead.forEach(m => modulesRead.add(m));
-  if (data.testsPassed) data.testsPassed.forEach(t => testsPassed.add(t));
-  
+  (data.modulesRead || []).forEach(m => modulesRead.add(m));
+  (data.testsPassed || []).forEach(t => testsPassed.add(t));
   apiKey = data.apiKey || '';
-  if (data.testAttempts) Object.assign(testAttempts, data.testAttempts);
-  if (data.testScores) Object.assign(testScores, data.testScores);
-  if (data.testTimes) Object.assign(testTimes, data.testTimes);
-  if (data.testHistory) Object.assign(testHistory, data.testHistory);
-  if (data.userStats) Object.assign(userStats, data.userStats);
-  
-  // Обновляем UI
-  updateProgress();
-  updateProfileScreen();
-  updateNavigationDoneClasses();
+  Object.assign(testAttempts, data.testAttempts || {});
+  Object.assign(testScores, data.testScores || {});
+  Object.assign(testTimes, data.testTimes || {});
+  Object.assign(testHistory, data.testHistory || {});
+  Object.assign(userStats, data.userStats || {
+    perfectTests: [],
+    firstTimePass: 0,
+    simDialogs: 0,
+    finalPerfect: false,
+    fastStart: false,
+    totalTime: 0,
+    firstTestDate: null,
+    modulesRead: 0,
+    avgScore: 0,
+    maxAttempts: 0,
+    allPerfect: false,
+    fastestTime: Infinity
+  });
 }
 
 // ========== АВТОРИЗАЦИЯ ==========
@@ -598,7 +817,9 @@ function applyLoadedData(data) {
     document.getElementById('display-name').textContent = currentUser.name;
     if (apiKey) document.getElementById('apiBanner').classList.add('hidden');
     updateTestLocks();
+    updateProgress();
     updateFinalNav();
+    updateNavigationDoneClasses();
   }
 })();
 
@@ -606,7 +827,11 @@ async function login() {
   const name = document.getElementById('login-name').value.trim();
   if (!name) { alert('Введи имя'); return; }
   
-  currentUser = { name: name, id: name.toLowerCase().replace(/\s+/g, '_') + '_' + Date.now() };
+  currentUser = { 
+    name: name, 
+    id: name.toLowerCase().replace(/\s+/g, '_') + '_' + Date.now() 
+  };
+  
   await loadFromCloud();
   
   localStorage.setItem('uib_current_user', JSON.stringify(currentUser));
@@ -618,6 +843,7 @@ async function login() {
   if (apiKey) document.getElementById('apiBanner').classList.add('hidden');
   
   updateTestLocks();
+  updateProgress();
   updateFinalNav();
   updateProfileScreen();
   updateNavigationDoneClasses();
@@ -638,7 +864,12 @@ async function logout() {
 
 async function saveKey() {
   const v = document.getElementById('apiKeyInput').value.trim();
-  if (v) { apiKey = v; document.getElementById('apiOk').style.display = 'inline'; setTimeout(() => document.getElementById('apiBanner').classList.add('hidden'), 700); await syncToCloud(); }
+  if (v) { 
+    apiKey = v; 
+    document.getElementById('apiOk').style.display = 'inline'; 
+    setTimeout(() => document.getElementById('apiBanner').classList.add('hidden'), 700); 
+    await syncToCloud(); 
+  }
 }
 
 function goToProfile() {
@@ -654,6 +885,7 @@ function updateNavigationDoneClasses() {
     const modNav = document.querySelector(`[data-s="${mod}"]`);
     const testMap = {'ethics':'t1','cat':'t2','audit':'t3','pentest':'t4','ord':'t5','fsb':'t6','fstec':'t7','gos':'t8','cold':'t9','warm':'t10','cross':'t11','stuck':'t12','obj':'t13'};
     const testNav = document.querySelector(`[data-s="${testMap[mod]}"]`);
+    
     if (testsPassed.has(mod)) {
       if (modNav) modNav.classList.add('done');
       if (testNav) testNav.classList.add('done');
@@ -664,59 +896,87 @@ function updateNavigationDoneClasses() {
   });
 }
 
-function toggleAccordion(elem) { elem.classList.toggle('open'); }
+// ========== АККОРДЕОНЫ ==========
+function toggleAccordion(elem) {
+  elem.classList.toggle('open');
+}
 
 function updateProfileScreen() {
   if (!currentUser) return;
+  
+  // Базовая статистика
   document.getElementById('stat-completed').textContent = testsPassed.size;
   document.getElementById('stat-percent').textContent = Math.round(testsPassed.size / 13 * 100) + '%';
   document.getElementById('stat-username').textContent = currentUser.name;
   document.getElementById('stat-time').textContent = Math.round(userStats.totalTime / 60) + ' мин';
   
+  // Дополнительная статистика
   const modules = ['ethics','cat','audit','pentest','ord','fsb','fstec','gos','cold','warm','cross','stuck','obj'];
+  
+  // Лучшая серия (подряд пройденных тестов)
   let bestStreak = 0, currentStreak = 0;
-  modules.forEach(m => { if (testsPassed.has(m)) currentStreak++; else { bestStreak = Math.max(bestStreak, currentStreak); currentStreak = 0; } });
+  modules.forEach(m => {
+    if (testsPassed.has(m)) currentStreak++;
+    else { bestStreak = Math.max(bestStreak, currentStreak); currentStreak = 0; }
+  });
   bestStreak = Math.max(bestStreak, currentStreak);
   document.getElementById('stat-best').textContent = bestStreak;
   
+  // Средний балл
   const scores = modules.filter(m => testScores[m]).map(m => (testScores[m] / QD[m].length) * 100);
   const avgScore = scores.length > 0 ? Math.round(scores.reduce((a,b) => a+b, 0) / scores.length) : 0;
   userStats.avgScore = avgScore;
   document.getElementById('stat-avg').textContent = avgScore + '%';
   
+  // Обновляем статистику для бейджей
   userStats.modulesRead = modulesRead.size;
   userStats.maxAttempts = Math.max(...Object.values(testAttempts), 0);
   userStats.allPerfect = modules.every(m => testsPassed.has(m) && testScores[m] === QD[m].length);
   userStats.fastestTime = Math.min(...Object.values(testTimes).flat(), Infinity);
   
+  // Бейджи
   const badgesHtml = Object.entries(BADGES).map(([key, badge]) => {
     const unlocked = badge.check(userStats);
     return `<div class="badge ${unlocked ? 'unlocked' : 'locked'}"><div class="badge-icon">${badge.icon}</div><div class="badge-name">${badge.name}</div><div class="badge-desc">${badge.desc}</div></div>`;
   }).join('');
   document.getElementById('badges-grid').innerHTML = badgesHtml;
   
+  // Среднее время (аккордеон)
   const avgTimeData = modules.filter(m => testTimes[m]).map(m => {
     const avgTime = Math.round(testTimes[m].reduce((a,b)=>a+b,0) / testTimes[m].length);
     return `<div class="stat-item"><span class="stat-item-label">${MODULE_NAMES_RU[m]}</span><span class="stat-item-value">${avgTime} сек</span></div>`;
   });
-  document.getElementById('avg-time-list').innerHTML = avgTimeData.length > 0 ? avgTimeData.join('') : '<div style="color:var(--muted);font-size:13px;padding:12px;">Нет данных</div>';
+  document.getElementById('avg-time-list').innerHTML = avgTimeData.length > 0 
+    ? avgTimeData.join('') 
+    : '<div style="color:var(--muted);font-size:13px;padding:12px;">Нет данных</div>';
   
+  // Попытки (аккордеон)
   const attemptsData = modules.filter(m => testAttempts[m]).map(m => {
     return `<div class="stat-item"><span class="stat-item-label">${MODULE_NAMES_RU[m]}</span><span class="stat-item-value">${testAttempts[m]} попыток</span></div>`;
   });
-  document.getElementById('attempts-list').innerHTML = attemptsData.length > 0 ? attemptsData.join('') : '<div style="color:var(--muted);font-size:13px;padding:12px;">Нет данных</div>';
+  document.getElementById('attempts-list').innerHTML = attemptsData.length > 0 
+    ? attemptsData.join('') 
+    : '<div style="color:var(--muted);font-size:13px;padding:12px;">Нет данных</div>';
   
+  // Лучшие результаты (аккордеон)
   const bestScoresData = modules.filter(m => testScores[m]).map(m => {
     const total = QD[m].length;
     const percent = Math.round(testScores[m] / total * 100);
     return `<div class="stat-item"><span class="stat-item-label">${MODULE_NAMES_RU[m]}</span><span class="stat-item-value">${testScores[m]}/${total} (${percent}%)</span></div>`;
   });
-  document.getElementById('best-scores-list').innerHTML = bestScoresData.length > 0 ? bestScoresData.join('') : '<div style="color:var(--muted);font-size:13px;padding:12px;">Нет данных</div>';
+  document.getElementById('best-scores-list').innerHTML = bestScoresData.length > 0 
+    ? bestScoresData.join('') 
+    : '<div style="color:var(--muted);font-size:13px;padding:12px;">Нет данных</div>';
   
+  // Слабые места
   const weakModules = modules.filter(m => {
     if (!testAttempts[m]) return false;
     if (testAttempts[m] >= 3) return true;
-    if (testScores[m]) { const total = QD[m].length; if (testScores[m] / total < 0.7) return true; }
+    if (testScores[m]) {
+      const total = QD[m].length;
+      const percent = testScores[m] / total;
+      if (percent < 0.7) return true;
+    }
     return false;
   });
   
@@ -727,14 +987,22 @@ function updateProfileScreen() {
     document.getElementById('weak-spots-section').innerHTML = '';
   }
   
+  // Прогресс по модулям
   const list = document.getElementById('profile-progress-list');
   list.innerHTML = modules.map((m, i) => `<div class="progress-item"><span class="progress-name">${i+1}. ${MODULE_NAMES_RU[m]}</span><span class="progress-status ${testsPassed.has(m) ? 'done' : 'pending'}">${testsPassed.has(m) ? '✓ Пройден' : '○ Не пройден'}</span></div>`).join('');
   
   updateNavigationDoneClasses();
 }
 
+// ========== НАВИГАЦИЯ ==========
 function go(id, el) {
-  if (id === 'home') { document.querySelectorAll('.scr').forEach(s => s.classList.remove('active')); document.querySelectorAll('.nv').forEach(n => n.classList.remove('active')); document.getElementById('s-home').classList.add('active'); if (el) el.classList.add('active'); return; }
+  if (id === 'home') {
+    document.querySelectorAll('.scr').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nv').forEach(n => n.classList.remove('active'));
+    document.getElementById('s-home').classList.add('active');
+    if (el) el.classList.add('active');
+    return;
+  }
   document.querySelectorAll('.scr').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.nv').forEach(n => n.classList.remove('active'));
   document.getElementById('s-' + id).classList.add('active');
@@ -747,45 +1015,119 @@ function updateTestLocks() {
   const testMap = {'t1':'ethics','t2':'cat','t3':'audit','t4':'pentest','t5':'ord','t6':'fsb','t7':'fstec','t8':'gos','t9':'cold','t10':'warm','t11':'cross','t12':'stuck','t13':'obj'};
   Object.entries(testMap).forEach(([testId, modId]) => {
     const testNav = document.querySelector('[data-s="' + testId + '"]');
-    if (testNav) { if (modulesRead.has(modId)) testNav.classList.remove('locked-test'); else testNav.classList.add('locked-test'); }
+    if (testNav) {
+      if (modulesRead.has(modId)) testNav.classList.remove('locked-test');
+      else testNav.classList.add('locked-test');
+    }
   });
 }
 
-function updateFinalNav() { const finalNav = document.getElementById('final-nav'); if (finalNav) { if (testsPassed.size >= 13) finalNav.classList.remove('locked-test'); else finalNav.classList.add('locked-test'); } }
-function showTheoryPart2(mod) { document.getElementById(mod + '-theory2').classList.remove('theory-hidden'); document.getElementById(mod + '-next').classList.add('hidden'); document.getElementById(mod + '-test-btn').classList.remove('hidden'); }
-async function markModuleRead(mod) { modulesRead.add(mod); updateTestLocks(); await syncToCloud(); }
+function updateFinalNav() {
+  const finalNav = document.getElementById('final-nav');
+  if (finalNav) {
+    if (testsPassed.size >= 13) finalNav.classList.remove('locked-test');
+    else finalNav.classList.add('locked-test');
+  }
+}
+
+function showTheoryPart2(mod) {
+  document.getElementById(mod + '-theory2').classList.remove('theory-hidden');
+  document.getElementById(mod + '-next').classList.add('hidden');
+  document.getElementById(mod + '-test-btn').classList.remove('hidden');
+}
+
+async function markModuleRead(mod) {
+  modulesRead.add(mod);
+  updateTestLocks();
+  await syncToCloud();
+}
 
 async function markTestPassed(testId, score, total, passed, answers, duration) {
   const map = {'t1':'ethics','t2':'cat','t3':'audit','t4':'pentest','t5':'ord','t6':'fsb','t7':'fstec','t8':'gos','t9':'cold','t10':'warm','t11':'cross','t12':'stuck','t13':'obj'};
   const mod = map[testId];
   if (mod) {
-    if (!testAttempts[mod]) testAttempts[mod] = 0; testAttempts[mod]++;
-    if (!testTimes[mod]) testTimes[mod] = []; testTimes[mod].push(duration);
+    if (!testAttempts[mod]) testAttempts[mod] = 0;
+    testAttempts[mod]++;
+    
+    if (!testTimes[mod]) testTimes[mod] = [];
+    testTimes[mod].push(duration);
+    
     if (!testScores[mod] || score > testScores[mod]) testScores[mod] = score;
-    if (!testHistory[mod]) testHistory[mod] = []; testHistory[mod].push({ score, total, passed, date: new Date().toISOString(), duration });
+    
+    if (!testHistory[mod]) testHistory[mod] = [];
+    testHistory[mod].push({ score, total, passed, date: new Date().toISOString(), duration });
+    
     userStats.totalTime += duration;
     if (!userStats.firstTestDate) userStats.firstTestDate = new Date().toISOString();
+    
     if (passed && score === total && !userStats.perfectTests.includes(mod)) userStats.perfectTests.push(mod);
     if (passed && testAttempts[mod] === 1) userStats.firstTimePass++;
-    if (!userStats.fastStart && testsPassed.size >= 5) { const firstDate = new Date(userStats.firstTestDate); const now = new Date(); if ((now - firstDate) / (1000 * 60 * 60) <= 24) userStats.fastStart = true; }
-    if (passed) { testsPassed.add(mod); const nav = document.querySelector('[data-s="' + mod + '"]'); if (nav) nav.classList.add('done'); const testNav = document.querySelector('[data-s="' + testId + '"]'); if (testNav) testNav.classList.add('done'); }
+    
+    if (!userStats.fastStart && testsPassed.size >= 5) {
+      const firstDate = new Date(userStats.firstTestDate);
+      const now = new Date();
+      const hoursDiff = (now - firstDate) / (1000 * 60 * 60);
+      if (hoursDiff <= 24) userStats.fastStart = true;
+    }
+    
+    if (passed) {
+      testsPassed.add(mod);
+      const nav = document.querySelector('[data-s="' + mod + '"]');
+      if (nav) nav.classList.add('done');
+      const testNav = document.querySelector('[data-s="' + testId + '"]');
+      if (testNav) testNav.classList.add('done');
+    }
+    
     await sendToGoogleSheets(mod, score, total, passed, answers, duration);
     await syncToCloud();
   }
   updateProgress();
   updateFinalNav();
-  updateProfileScreen(); // <-- ВАЖНО: обновляем ЛК сразу!
 }
 
 async function sendToGoogleSheets(moduleName, correct, total, passed, answers, duration) {
   if (!currentUser || GOOGLE_SCRIPT_URL.includes('YOUR_SCRIPT_ID')) return;
-  const percent = Math.round(correct / total * 100); const attempt = testAttempts[moduleName] || 1;
-  try { await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ userId: currentUser.name, module: MODULE_NAMES_RU[moduleName] || moduleName, attempt: attempt, correct: correct, total: total, percent: percent, passed: passed, answers: JSON.stringify(answers), duration: duration }) }); } catch(e) {}
+  
+  const percent = Math.round(correct / total * 100);
+  const attempt = testAttempts[moduleName] || 1;
+  
+  try {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        userId: currentUser.name,
+        module: MODULE_NAMES_RU[moduleName] || moduleName,
+        attempt: attempt,
+        correct: correct,
+        total: total,
+        percent: percent,
+        passed: passed,
+        answers: JSON.stringify(answers),
+        duration: duration
+      })
+    });
+  } catch(e) { console.log('Ошибка отправки:', e); }
 }
 
-function checkAllTestsPassed() { if (testsPassed.size >= 13) go('final', document.getElementById('final-nav')); else go('sim', document.querySelector('[data-s=sim]')); }
-function updateProgress() { const completed = testsPassed.size; document.getElementById('pLabel').textContent = completed + ' / 13'; document.getElementById('pFill').style.width = (completed / 13 * 100) + '%'; }
-function sp(id, el) { document.querySelectorAll('.pp').forEach(p => p.classList.remove('active')); document.querySelectorAll('.tab').forEach(t => t.classList.remove('active')); document.getElementById(id).classList.add('active'); el.classList.add('active'); }
+function checkAllTestsPassed() {
+  if (testsPassed.size >= 13) go('final', document.getElementById('final-nav'));
+  else go('sim', document.querySelector('[data-s=sim]'));
+}
+
+function updateProgress() {
+  const completed = testsPassed.size;
+  document.getElementById('pLabel').textContent = completed + ' / 13';
+  document.getElementById('pFill').style.width = (completed / 13 * 100) + '%';
+}
+
+function sp(id, el) {
+  document.querySelectorAll('.pp').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+}
 
 // ========== ДАННЫЕ ТЕСТОВ (ИСПРАВЛЕННЫЕ) ==========
 const QD = {
